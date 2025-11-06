@@ -1,2 +1,29 @@
-#git ignore
+# Rust
+/target/
+**/*.rs.bk
+Cargo.lock
+
+# WebAssembly
+/pkg/
+*.wasm
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.local
+
+# Notes
 notes.txt
+

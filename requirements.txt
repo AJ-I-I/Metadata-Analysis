@@ -1,0 +1,64 @@
+# Metadata-Analysis Tool - 
+# Requirements List
+# This file lists all necessary dependencies and installation steps
+
+# ============================================
+# RUST DEPENDENCIES
+# ============================================
+# These are managed via Cargo.toml, but listed here for reference:
+# - rustc (Rust compiler) - Install from https://rustup.rs/
+# - cargo (Rust package manager) - Included with rustup
+# - wasm-pack - Install via: cargo install wasm-pack
+
+# ============================================
+# SYSTEM REQUIREMENTS
+# ============================================
+# Windows:
+# - PowerShell
+# - WSL (Windows Subsystem for Linux), optional but HIGHLY *reccommended*
+# - Git for Windows (optional, for version control)
+
+# Linux/WSL:
+# - bash
+# - curl
+# - build-essential (gcc, make, linux tools, etc.)
+
+# ============================================
+# INSTALLATION INSTRUCTIONS
+# ============================================
+
+# 1. Install Rust:
+#    Windows: Download and run rustup-init.exe from rust website (https://rustup.rs/)
+#    Linux/WSL run command: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+# 2. Install wasmassembley pack:
+#    cargo install wasm-pack
+
+# 3. Run setup script:
+#    cd to project root
+#    Windows: .\scripts\setup.ps1
+#    WSL: bash scripts/setup.sh
+
+# ============================================
+# FRONTEND DEPENDENCIES
+# ============================================
+# These are loaded using CDN in index.html:
+# - OpenLayers 8.2.0
+
+# ============================================
+# OPTIONAL: WEB SERVER
+# ============================================
+# For local development, you can use:
+# - Python: python -m http.server 8000
+# - Node.js: npx serve frontend
+# - PHP: php -S localhost:8000
+
+# ============================================
+# BUILD COMMANDS
+# ============================================
+# After setup, to rebuild WebAssembly:
+# cd backend
+# wasm-pack build --target web --out-dir ../pkg
+# to clean build artifacts run: wasm-pack clean
+# to clean rust build artifacts run: cargo clean
+

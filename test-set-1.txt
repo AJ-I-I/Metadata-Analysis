@@ -1,0 +1,10 @@
+===================================
+#                                 #
+#      TESTING FOR PROJECT        #
+#                                 #
+===================================
+
+[ ] check if image (all file types)
+can be processed as intended
+[ ] test different image file sizes
+from small to as large as possible

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Forensic Image Analysis Tool</title>
+    <link rel="stylesheet" href="crt.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@8.2.0/ol.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Digital Forensic Image Analysis Tool</h1>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-button active" data-tab="upload">Upload & Options</button>
+            <button class="tab-button" data-tab="analysis">Analysis & Map</button>
+            <button class="tab-button" data-tab="results">Results</button>
+        </div>
+
+        <!-- Tab 1: Upload & Options -->
+        <div id="upload-tab" class="tab-content active">
+            <div class="upload-section">
+                <h2>Upload Image</h2>
+                <div class="upload-area" id="upload-area">
+                    <input type="file" id="image-input" accept="image/*" style="display: none;">
+                    <div class="upload-placeholder">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        <p>CLICK TO UPLOAD OR DRAG AND DROP</p>
+                        <p class="upload-hint">Supports: JPEG, PNG, TIFF, HEIC</p>
+                    </div>
+                </div>
+                <div id="image-preview" class="image-preview" style="display: none;">
+                    <img id="preview-img" alt="Preview">
+                    <button id="remove-image" class="remove-btn">REMOVE IMAGE</button>
+                </div>
+            </div>
+
+            <div class="options-section">
+                <h2>Analysis Options</h2>
+                <div class="options-grid">
+                    <label class="option-checkbox">
+                        <input type="checkbox" id="extract-metadata" checked>
+                        <span>EXTRACT META DATA</span>
+                    </label>
+                    <label class="option-checkbox">
+                        <input type="checkbox" id="reverse-search">
+                        <span>REVERSE IMAGE SEARCH</span>
+                        <!--<span>[!]NOT FUNCTIONAL[!]</span>-->
+                    </label>
+                    <label class="option-checkbox">
+                        <input type="checkbox" id="plot-coordinates" checked>
+                        <span>PLOT COORDINATES ON MAP</span>
+                    </label>
+                </div>
+                <button id="analyze-btn" class="analyze-button" disabled>START ANALYSIS</button>
+            </div>
+        </div>
+
+        <!-- Tab 2: Analysis & Map -->
+        <div id="analysis-tab" class="tab-content">
+            <div class="analysis-layout">
+                <div class="terminal-section">
+                    <h2>Analysis Progress</h2>
+                    <div class="terminal" id="terminal">
+                        <div class="terminal-header">
+                            <span class="terminal-title">T.E.R.M.I.N.A.L</span>
+                        </div>
+                        <div class="terminal-body" id="terminal-body">
+                            <div class="terminal-line">waiting for analysis to start...</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-section">
+                    <h2>Location Map</h2>
+                    <div id="map" class="map"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 3: Results -->
+        <div id="results-tab" class="tab-content">
+            <div class="results-header">
+                <h2>ANALYSIS RESULTS</h2>
+                <div class="export-buttons">
+                    <button id="export-json" class="export-btn">Export JSON</button>
+                    <button id="export-csv" class="export-btn">Export CSV</button>
+                    <button id="export-txt" class="export-btn">Export TXT</button>
+                </div>
+            </div>
+            <div id="results-content" class="results-content">
+                <p class="no-results">No analysis results yet. Upload an image and start analysis.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/ol@8.2.0/dist/ol.js"></script>
+    <script type="module" src="app.js"></script>
+</body>
+</html>
+
